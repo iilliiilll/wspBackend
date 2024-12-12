@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/api/message")
+@CrossOrigin(origins = ["https://wsp-frontend-soowan.netlify.app"])
 class MessageController {
     @GetMapping
-    // TODO: React 주소로 변경할 것
-    @CrossOrigin(origins = ["http://localhost:3000"])
-    fun getMessage() = mapOf(("status" to "success"))
+    fun getRoot() = mapOf(("status" to "root"))
+
+    @GetMapping("/api/message")
+    fun getMessage() = mapOf("status" to "success")
 }
